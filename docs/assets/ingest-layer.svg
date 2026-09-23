@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1640 1040" role="img" aria-labelledby="title desc">
+  <title id="title">Detailed monocell ingest layer</title>
+  <desc id="desc">A seven-stage ingest process: collect a file and metadata, inspect it, obtain human confirmation, parse with an adapter, validate the canonical contract, run quality checks, and append the experiment to the store. Structural failures are rejected; quality findings are stored as flags.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto">
+      <path d="M1,1 L10,6 L1,11 Z" fill="#66817c" />
+    </marker>
+    <marker id="red-arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto">
+      <path d="M1,1 L10,6 L1,11 Z" fill="#a94d43" />
+    </marker>
+    <marker id="amber-arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto">
+      <path d="M1,1 L10,6 L1,11 Z" fill="#a77922" />
+    </marker>
+    <style>
+      .title { font: 700 28px 'Segoe UI', Arial, sans-serif; fill: #173331; }
+      .subtitle { font: 15px 'Segoe UI', Arial, sans-serif; fill: #526a66; }
+      .phase { font: 700 13px 'Segoe UI', Arial, sans-serif; letter-spacing: 1px; fill: #52706b; }
+      .number { font: 700 14px 'Segoe UI', Arial, sans-serif; fill: #ffffff; }
+      .head { font: 700 17px 'Segoe UI', Arial, sans-serif; fill: #173331; }
+      .body { font: 13px 'Segoe UI', Arial, sans-serif; fill: #405b57; }
+      .branchhead { font: 700 18px 'Segoe UI', Arial, sans-serif; }
+      .branchbody { font: 14px 'Segoe UI', Arial, sans-serif; fill: #405b57; }
+      .small { font: 13px 'Segoe UI', Arial, sans-serif; fill: #526a66; }
+      .node { stroke: #c4d3cf; stroke-width: 1.5; rx: 14; }
+      .edge { fill: none; stroke: #66817c; stroke-width: 3; marker-end: url(#arrow); }
+      .reject-edge { fill: none; stroke: #a94d43; stroke-width: 2.5; marker-end: url(#red-arrow); }
+      .flag-edge { fill: none; stroke: #a77922; stroke-width: 2.5; marker-end: url(#amber-arrow); }
+    </style>
+  </defs>
+  <rect width="1640" height="1040" fill="#f6f9f7" />
+  <text x="40" y="50" class="phase">MONOCELL / ORIGINAL PLATFORM / INGEST CONTRACT</text>
+  <text x="40" y="91" class="title">From instrument file to reviewable experiment record</text>
+  <text x="40" y="121" class="subtitle">Detailed workflow at the interface level. Vendor mappings, parser code, and numeric quality gates are intentionally excluded.</text>
+
+  <text x="40" y="158" class="phase">PREPARE</text>
+  <text x="510" y="158" class="phase">INTERPRET</text>
+  <text x="970" y="158" class="phase">VALIDATE AND COMMIT</text>
+
+  <rect x="30" y="184" width="200" height="278" fill="#e7f2ed" class="node" />
+  <circle cx="54" cy="211" r="15" fill="#27756a" />
+  <text x="54" y="216" text-anchor="middle" class="number">1</text>
+  <text x="77" y="217" class="head">Input</text>
+  <text x="48" y="263" class="body">Tabular test export</text>
+  <text x="48" y="289" class="body">Protocol and cell metadata</text>
+  <text x="48" y="315" class="body">One file or a folder</text>
+  <text x="48" y="366" class="small">Metadata travels beside the</text>
+  <text x="48" y="386" class="small">measurement where available.</text>
+
+  <rect x="250" y="184" width="200" height="278" fill="#e7f2ed" class="node" />
+  <circle cx="274" cy="211" r="15" fill="#27756a" />
+  <text x="274" y="216" text-anchor="middle" class="number">2</text>
+  <text x="297" y="217" class="head">Inspect</text>
+  <text x="268" y="263" class="body">Read file structure</text>
+  <text x="268" y="289" class="body">Suggest type and profile</text>
+  <text x="268" y="315" class="body">Preview mapped columns</text>
+  <text x="268" y="366" class="small">Show missing, empty, and</text>
+  <text x="268" y="386" class="small">unplaced fields before write.</text>
+
+  <rect x="470" y="184" width="200" height="278" fill="#e7f2ed" class="node" />
+  <circle cx="494" cy="211" r="15" fill="#27756a" />
+  <text x="494" y="216" text-anchor="middle" class="number">3</text>
+  <text x="517" y="217" class="head">Confirm</text>
+  <text x="488" y="263" class="body">Choose type and profile</text>
+  <text x="488" y="289" class="body">Review the preview</text>
+  <text x="488" y="315" class="body">Confirm folder plan</text>
+  <text x="488" y="366" class="small">Ambiguity remains visible;</text>
+  <text x="488" y="386" class="small">the system does not guess.</text>
+
+  <rect x="690" y="184" width="200" height="278" fill="#e4eef2" class="node" />
+  <circle cx="714" cy="211" r="15" fill="#3d7183" />
+  <text x="714" y="216" text-anchor="middle" class="number">4</text>
+  <text x="737" y="217" class="head">Parse and map</text>
+  <text x="708" y="263" class="body">Read the file layout</text>
+  <text x="708" y="289" class="body">Map fields to schema names</text>
+  <text x="708" y="315" class="body">Normalize units and time</text>
+  <text x="708" y="341" class="body">Translate step labels</text>
+  <text x="708" y="392" class="small">Keep a report of the mapping.</text>
+
+  <rect x="910" y="184" width="200" height="278" fill="#e4eef2" class="node" />
+  <circle cx="934" cy="211" r="15" fill="#3d7183" />
+  <text x="934" y="216" text-anchor="middle" class="number">5</text>
+  <text x="957" y="217" class="head">Check contract</text>
+  <text x="928" y="263" class="body">Canonical columns</text>
+  <text x="928" y="289" class="body">Required context</text>
+  <text x="928" y="315" class="body">Experiment-type rules</text>
+  <text x="928" y="366" class="small">A structural mismatch stops</text>
+  <text x="928" y="386" class="small">the write before persistence.</text>
+
+  <rect x="1130" y="184" width="200" height="278" fill="#f3eddb" class="node" />
+  <circle cx="1154" cy="211" r="15" fill="#a77922" />
+  <text x="1154" y="216" text-anchor="middle" class="number">6</text>
+  <text x="1177" y="217" class="head">Run checks</text>
+  <text x="1148" y="263" class="body">Signal consistency</text>
+  <text x="1148" y="289" class="body">Protocol completeness</text>
+  <text x="1148" y="315" class="body">Trace quality indicators</text>
+  <text x="1148" y="366" class="small">Findings become flags on</text>
+  <text x="1148" y="386" class="small">the experiment record.</text>
+
+  <rect x="1350" y="184" width="200" height="278" fill="#e7f2ed" class="node" />
+  <circle cx="1374" cy="211" r="15" fill="#27756a" />
+  <text x="1374" y="216" text-anchor="middle" class="number">7</text>
+  <text x="1397" y="217" class="head">Write and index</text>
+  <text x="1368" y="263" class="body">Parsed source frame</text>
+  <text x="1368" y="289" class="body">Canonical experiment series</text>
+  <text x="1368" y="315" class="body">Metadata and quality</text>
+  <text x="1368" y="366" class="small">Append-only files and a</text>
+  <text x="1368" y="386" class="small">rebuildable query index.</text>
+
+  <path d="M230,323 H242" class="edge" />
+  <path d="M450,323 H462" class="edge" />
+  <path d="M670,323 H682" class="edge" />
+  <path d="M890,323 H902" class="edge" />
+  <path d="M1110,323 H1122" class="edge" />
+  <path d="M1330,323 H1342" class="edge" />
+
+  <rect x="48" y="530" width="690" height="152" fill="#f8e9e6" stroke="#d7a8a0" stroke-width="1.5" rx="14" />
+  <text x="76" y="568" class="branchhead" fill="#8e3e36">Reject before write</text>
+  <text x="76" y="601" class="branchbody">Unreadable file, unresolved required fields, a violated schema contract,</text>
+  <text x="76" y="625" class="branchbody">or an unconfirmed folder plan means no experiment is persisted.</text>
+  <text x="76" y="656" class="small">The refusal should explain what needs a human correction.</text>
+
+  <rect x="902" y="530" width="690" height="152" fill="#f7f0dd" stroke="#d5bd79" stroke-width="1.5" rx="14" />
+  <text x="930" y="568" class="branchhead" fill="#8a641c">Keep valid data; record quality concerns</text>
+  <text x="930" y="601" class="branchbody">When the record satisfies its structural contract, a check finding is attached</text>
+  <text x="930" y="625" class="branchbody">as a visible flag. The experiment remains available for review and analysis.</text>
+  <text x="930" y="656" class="small">A warning is not silently converted into a clean result.</text>
+
+  <path d="M1010,463 C950,493 770,493 690,522" class="reject-edge" />
+  <path d="M1230,463 C1240,490 1240,500 1240,522" class="flag-edge" />
+
+  <rect x="48" y="744" width="1544" height="206" fill="#ffffff" class="node" />
+  <text x="76" y="784" class="phase">ONE EXPERIMENT WRITE CONTRACT</text>
+  <text x="76" y="820" class="head">A single record carries the measurement and the context needed to interpret it later.</text>
+  <line x1="76" y1="842" x2="1560" y2="842" stroke="#d7e1de" stroke-width="1.5" />
+  <text x="76" y="880" class="body">Parsed frame</text>
+  <text x="76" y="906" class="small">Before ingest-side changes</text>
+  <text x="430" y="880" class="body">Canonical series</text>
+  <text x="430" y="906" class="small">Stable names and declared type</text>
+  <text x="790" y="880" class="body">Metadata and quality</text>
+  <text x="790" y="906" class="small">Source context, checks, and flags</text>
+  <text x="1190" y="880" class="body">Searchable index</text>
+  <text x="1190" y="906" class="small">Rebuilt from stored records</text>
+
+</svg>

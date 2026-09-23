@@ -18,6 +18,8 @@ re-derived.
 
 This repository is shared for review only. See [LICENSE](LICENSE).
 
+> Interviewer guide: [high-level platform overview, ingest flow, validation paths, and demo scope](docs/interview-guide.md).
+
 ## Pipeline
 
 ```mermaid

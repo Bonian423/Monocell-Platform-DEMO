@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 850" role="img" aria-labelledby="title desc">
+  <title id="title">Original monocell platform loop</title>
+  <desc id="desc">High-level flow from lab evidence through a shared ingest and store, analyses, model assembly, validation, and next-experiment guidance.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto">
+      <path d="M1,1 L10,6 L1,11 Z" fill="#66817c" />
+    </marker>
+    <style>
+      .title { font: 700 28px 'Segoe UI', Arial, sans-serif; fill: #173331; }
+      .subtitle { font: 15px 'Segoe UI', Arial, sans-serif; fill: #526a66; }
+      .label { font: 700 14px 'Segoe UI', Arial, sans-serif; letter-spacing: 1px; fill: #52706b; }
+      .head { font: 700 19px 'Segoe UI', Arial, sans-serif; fill: #173331; }
+      .body { font: 14px 'Segoe UI', Arial, sans-serif; fill: #405b57; }
+      .small { font: 13px 'Segoe UI', Arial, sans-serif; fill: #526a66; }
+      .node { stroke: #c4d3cf; stroke-width: 1.5; rx: 16; }
+      .edge { fill: none; stroke: #66817c; stroke-width: 3; marker-end: url(#arrow); }
+      .dashed { fill: none; stroke: #8caaa3; stroke-width: 2.5; stroke-dasharray: 8 7; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1440" height="850" fill="#f6f9f7" />
+  <text x="48" y="52" class="label">MONOCELL / ORIGINAL PLATFORM</text>
+  <text x="48" y="91" class="title">From test evidence to a defensible cell model</text>
+  <text x="48" y="121" class="subtitle">A high-level map of the contracts and feedback loops; implementation and calibration details are intentionally omitted.</text>
+
+  <rect x="45" y="178" width="210" height="218" fill="#e7f2ed" class="node" />
+  <text x="67" y="215" class="label">01 / EVIDENCE</text>
+  <text x="67" y="251" class="head">Cell and tests</text>
+  <text x="67" y="286" class="body">Lab exports</text>
+  <text x="67" y="311" class="body">Protocol metadata</text>
+  <text x="67" y="336" class="body">Cell build record</text>
+  <text x="67" y="374" class="small">Measured or controlled data</text>
+
+  <rect x="295" y="178" width="230" height="218" fill="#e4eef2" class="node" />
+  <text x="317" y="215" class="label">02 / INGEST</text>
+  <text x="317" y="251" class="head">Shared record</text>
+  <text x="317" y="286" class="body">Inspect and map files</text>
+  <text x="317" y="311" class="body">Normalize to one schema</text>
+  <text x="317" y="336" class="body">Store checks with data</text>
+  <text x="317" y="374" class="small">Append-only experiment history</text>
+
+  <rect x="565" y="178" width="250" height="218" fill="#f3eddb" class="node" />
+  <text x="587" y="215" class="label">03 / ANALYSIS</text>
+  <text x="587" y="251" class="head">Evidence products</text>
+  <text x="587" y="286" class="body">Test-specific analysis</text>
+  <text x="587" y="311" class="body">Versioned result artifacts</text>
+  <text x="587" y="336" class="body">Inputs recorded for each result</text>
+  <text x="587" y="374" class="small">Independent modules share artifacts</text>
+
+  <rect x="855" y="178" width="230" height="218" fill="#e7f2ed" class="node" />
+  <text x="877" y="215" class="label">04 / MODEL</text>
+  <text x="877" y="251" class="head">Parameter assembly</text>
+  <text x="877" y="286" class="body">Measured and assumed inputs</text>
+  <text x="877" y="311" class="body">Source-aware model record</text>
+  <text x="877" y="336" class="body">Physics-model hand-off</text>
+  <text x="877" y="374" class="small">Coverage and provenance stay visible</text>
+
+  <rect x="1125" y="178" width="270" height="218" fill="#f3e6e2" class="node" />
+  <text x="1147" y="215" class="label">05 / DECISIONS</text>
+  <text x="1147" y="251" class="head">Check and act</text>
+  <text x="1147" y="286" class="body">Compare with held-out evidence</text>
+  <text x="1147" y="311" class="body">Report model coverage and status</text>
+  <text x="1147" y="336" class="body">Identify the next useful test</text>
+  <text x="1147" y="374" class="small">A result is tied to its evidence</text>
+
+  <path d="M255,286 H286" class="edge" />
+  <path d="M525,286 H556" class="edge" />
+  <path d="M815,286 H846" class="edge" />
+  <path d="M1085,286 H1116" class="edge" />
+
+  <rect x="250" y="475" width="850" height="126" fill="#ffffff" class="node" />
+  <text x="278" y="514" class="label">FRESHNESS LOOP</text>
+  <text x="278" y="549" class="head">Changed evidence refreshes only the results that depend on it</text>
+  <text x="278" y="578" class="body">Inputs are identified in result records; re-derivation follows those dependencies.</text>
+  <path d="M410,397 C410,440 470,452 520,466" class="dashed" />
+  <path d="M970,466 C1010,443 1035,426 1035,397" class="dashed" />
+
+  <rect x="445" y="680" width="550" height="92" fill="#dceee7" class="node" />
+  <text x="720" y="716" text-anchor="middle" class="label">CLOSED-LOOP EXPERIMENT PLANNING</text>
+  <text x="720" y="748" text-anchor="middle" class="body">A reported evidence gap can guide what the lab measures next.</text>
+  <path d="M1260,397 C1260,590 1110,728 1005,728" class="edge" />
+  <path d="M445,728 C250,728 150,584 150,406" class="edge" />
+
+  <text x="48" y="817" class="small">Architecture view only. No proprietary equations, model values, thresholds, or instrument signatures are shown.</text>
+</svg>

@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" role="img" aria-labelledby="title desc">
+  <title id="title">Three evidence paths in monocell</title>
+  <desc id="desc">Three different validation paths: recovery of known synthetic truth, preservation of meaning through file export and ingest, and prediction against held-out measured data.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto">
+      <path d="M1,1 L10,6 L1,11 Z" fill="#66817c" />
+    </marker>
+    <style>
+      .title { font: 700 28px 'Segoe UI', Arial, sans-serif; fill: #173331; }
+      .subtitle { font: 15px 'Segoe UI', Arial, sans-serif; fill: #526a66; }
+      .label { font: 700 13px 'Segoe UI', Arial, sans-serif; letter-spacing: 1px; fill: #52706b; }
+      .head { font: 700 18px 'Segoe UI', Arial, sans-serif; fill: #173331; }
+      .body { font: 14px 'Segoe UI', Arial, sans-serif; fill: #405b57; }
+      .small { font: 13px 'Segoe UI', Arial, sans-serif; fill: #526a66; }
+      .node { stroke: #c4d3cf; stroke-width: 1.5; rx: 14; }
+      .edge { fill: none; stroke: #66817c; stroke-width: 2.5; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1440" height="900" fill="#f6f9f7" />
+  <text x="48" y="52" class="label">MONOCELL / EVIDENCE MODEL</text>
+  <text x="48" y="91" class="title">Three validation paths, three different questions</text>
+  <text x="48" y="121" class="subtitle">A synthetic pass, an ingest round trip, and a held-out prediction are complementary, not interchangeable.</text>
+
+  <rect x="40" y="164" width="430" height="590" fill="#e7f2ed" class="node" />
+  <text x="68" y="204" class="label">A / CONTROLLED TRUTH</text>
+  <text x="68" y="239" class="head">Does the analysis recover a known answer?</text>
+  <rect x="72" y="276" width="366" height="86" fill="#ffffff" class="node" />
+  <text x="94" y="312" class="body">Controlled synthetic experiment</text>
+  <text x="94" y="338" class="small">Known conditions and reference values</text>
+  <path d="M255,365 V391" class="edge" />
+  <rect x="72" y="399" width="366" height="86" fill="#ffffff" class="node" />
+  <text x="94" y="435" class="body">Run the analysis path</text>
+  <text x="94" y="461" class="small">Use the same production interfaces</text>
+  <path d="M255,488 V514" class="edge" />
+  <rect x="72" y="522" width="366" height="104" fill="#ffffff" class="node" />
+  <text x="94" y="559" class="body">Compare with known truth</text>
+  <text x="94" y="585" class="small">Repeat across declared conditions</text>
+  <text x="94" y="607" class="small">Include controls that should fail</text>
+  <text x="72" y="680" class="small">Question: is the estimator behaving as expected?</text>
+
+  <rect x="505" y="164" width="430" height="590" fill="#e4eef2" class="node" />
+  <text x="533" y="204" class="label">B / FILE ROUND TRIP</text>
+  <text x="533" y="239" class="head">Does ingest preserve experiment meaning?</text>
+  <rect x="537" y="276" width="366" height="86" fill="#ffffff" class="node" />
+  <text x="559" y="312" class="body">Canonical experiment record</text>
+  <text x="559" y="338" class="small">One known measurement</text>
+  <path d="M720,365 V391" class="edge" />
+  <rect x="537" y="399" width="366" height="86" fill="#ffffff" class="node" />
+  <text x="559" y="435" class="body">Export, then use normal ingest</text>
+  <text x="559" y="461" class="small">Exercise file parsing and metadata</text>
+  <path d="M720,488 V514" class="edge" />
+  <rect x="537" y="522" width="366" height="104" fill="#ffffff" class="node" />
+  <text x="559" y="559" class="body">Compare downstream results</text>
+  <text x="559" y="585" class="small">Direct path versus re-ingested path</text>
+  <text x="559" y="607" class="small">Look for semantic drift</text>
+  <text x="537" y="680" class="small">Question: did the file boundary change the data?</text>
+
+  <rect x="970" y="164" width="430" height="590" fill="#f3eddb" class="node" />
+  <text x="998" y="204" class="label">C / HELD-OUT EVIDENCE</text>
+  <text x="998" y="239" class="head">Does the model predict unseen measurements?</text>
+  <rect x="1002" y="276" width="366" height="86" fill="#ffffff" class="node" />
+  <text x="1024" y="312" class="body">Available cell evidence</text>
+  <text x="1024" y="338" class="small">Inputs used for model assembly</text>
+  <path d="M1185,365 V391" class="edge" />
+  <rect x="1002" y="399" width="366" height="86" fill="#ffffff" class="node" />
+  <text x="1024" y="435" class="body">Build and run the model</text>
+  <text x="1024" y="461" class="small">Keep source and coverage visible</text>
+  <path d="M1185,488 V514" class="edge" />
+  <rect x="1002" y="522" width="366" height="104" fill="#ffffff" class="node" />
+  <text x="1024" y="559" class="body">Check against held-out data</text>
+  <text x="1024" y="585" class="small">Report the result and its limitations</text>
+  <text x="1024" y="607" class="small">Do not fit to the check data</text>
+  <text x="1002" y="680" class="small">Question: does the model generalize to evidence?</text>
+
+  <rect x="40" y="784" width="1360" height="70" fill="#173331" rx="12" />
+  <text x="720" y="827" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff">A pass on one path does not certify the others.</text>
+</svg>
