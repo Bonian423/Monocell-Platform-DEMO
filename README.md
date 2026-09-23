@@ -22,19 +22,24 @@ This repository is shared for review only. See [LICENSE](LICENSE).
 
 ## Pipeline
 
-```mermaid
-flowchart LR
-    A["Instrument exports<br/>CSV / XLSX + sidecar JSON"] --> B["Detection<br/>instrument profile, type by shape"]
-    B --> C["Readers<br/>headers, units, step labels"]
-    C --> D["Schema + checks at ingest<br/>specs, QC, rules, flags"]
-    D --> E[("Append-only store<br/>Parquet + JSON, DuckDB index")]
-    E --> F["Parameter extraction<br/>(abstracted in this copy)"]
-    F --> G["Parameter file<br/>versioned, cites input hashes"]
-    G --> H["PyBaMM<br/>SPM / SPMe / DFN"]
-    H --> I["Simulation artifact<br/>cites the parameter file hash"]
-    E -. "new, edited or retracted data" .-> J{"rederive:<br/>stale?"}
-    J -. "re-run" .-> F
-```
+[![Compact pipeline from instrument exports to the PyBaMM hand-off, including the extraction boundary in this review copy.](docs/assets/pipeline.svg)](docs/assets/pipeline.svg)
+
+The diagram is sized for the README preview. Open the linked SVG for a scalable
+view.
+
+## Platform diagrams
+
+### Original platform loop
+
+[![Cell evidence flows through ingest, analysis, model assembly, held-out validation, and a next-test feedback loop.](docs/assets/original-platform.svg)](docs/assets/original-platform.svg)
+
+### Detailed ingest layer
+
+[![Detailed ingest flow showing inspection, confirmation, mapping, schema refusal, quality flags, and append-only storage.](docs/assets/ingest-layer.svg)](docs/assets/ingest-layer.svg)
+
+### Evidence validation
+
+[![The three separate checks: synthetic truth recovery, file round trip, and held-out model prediction.](docs/assets/evidence-validation.svg)](docs/assets/evidence-validation.svg)
 
 ## What is here
 
