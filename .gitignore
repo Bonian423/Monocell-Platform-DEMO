@@ -1,0 +1,20 @@
+# Data stores written by the CLI and the walkthrough. Patterns without a
+# leading slash match at any depth, so a store created by running a command
+# from the wrong directory is ignored too.
+data/
+demo_store/
+walkthrough_store/
+
+# A local HTML render of the walkthrough, for attaching to an email. The
+# notebook itself renders on GitHub, so this is a build product, not source.
+walkthrough.html
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.ipynb_checkpoints/

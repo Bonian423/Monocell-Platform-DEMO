@@ -1,0 +1,19 @@
+{
+  "software": "monocell sample campaign (synthetic)",
+  "instrument": {
+    "name": "cycler-01",
+    "chamber": "chamber-01",
+    "pulse_rate": 0.05,
+    "relax_criterion": "6 h or dV/dt < 0.1 mV/h"
+  },
+  "protocol": {
+    "description": "GITT at 15 C: 20 discharge pulses of 30 min at C/20, 6 h relaxation after each"
+  },
+  "cell_state": {
+    "capacity_ref_Ah": 5.0,
+    "rpt_index": 0,
+    "age_efc": 0.0,
+    "aging_temperature_K": 288.15,
+    "soc_basis": "generator_map"
+  }
+}

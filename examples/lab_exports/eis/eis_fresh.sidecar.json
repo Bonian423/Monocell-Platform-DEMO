@@ -1,0 +1,21 @@
+{
+  "software": "monocell sample campaign (synthetic)",
+  "instrument": {
+    "potentiostat": "potentiostat-01",
+    "amplitude_mV": 10.0,
+    "f_min_Hz": 0.01,
+    "f_max_Hz": 10000.0,
+    "points_per_decade": 10
+  },
+  "protocol": {
+    "description": "potentiostatic EIS at 50% SOC, 25 C"
+  },
+  "cell_state": {
+    "capacity_ref_Ah": 5.0,
+    "rpt_index": 0,
+    "age_efc": 0.0,
+    "soc_start": 0.5,
+    "soc_end": 0.5,
+    "soc_basis": "generator_map"
+  }
+}

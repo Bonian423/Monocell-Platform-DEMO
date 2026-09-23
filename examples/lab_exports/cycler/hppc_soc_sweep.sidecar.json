@@ -1,0 +1,18 @@
+{
+  "software": "monocell sample campaign (synthetic)",
+  "instrument": {
+    "name": "cycler-02",
+    "sampling_rate_Hz": 10.0
+  },
+  "protocol": {
+    "description": "HPPC: 60 s 1C discharge pulses at five states of charge, 300 s relaxation after each. The state of charge is set between blocks (C/2 charge, then 1 h rest); the export does not include those steps.",
+    "rest_rule": "5*tau2",
+    "rest_note": "300 s relaxation after each 60 s pulse"
+  },
+  "cell_state": {
+    "capacity_ref_Ah": 5.0,
+    "rpt_index": 0,
+    "age_efc": 0.0,
+    "soc_basis": "generator_map"
+  }
+}

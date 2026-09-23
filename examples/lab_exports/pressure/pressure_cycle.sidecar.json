@@ -1,0 +1,21 @@
+{
+  "software": "monocell sample campaign (synthetic)",
+  "instrument": {
+    "name": "pressure-rig-01",
+    "load_cell_id": "LC-01",
+    "calibration_date": "2026-01-15",
+    "fixture_stiffness_N_per_um": 5.0,
+    "creep_hold_protocol": "1 h at 20% SOC and 25 C",
+    "sampling_rate_Hz": 1.0,
+    "ntp_synced": true
+  },
+  "protocol": {
+    "description": "1C charge from 20% to 80% SOC and back under stack pressure, then a 1 h creep hold"
+  },
+  "cell_state": {
+    "capacity_ref_Ah": 5.0,
+    "rpt_index": 0,
+    "age_efc": 0.0,
+    "soc_basis": "generator_map"
+  }
+}

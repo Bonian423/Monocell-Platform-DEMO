@@ -1,0 +1,25 @@
+{
+  "software": "monocell sample campaign (synthetic)",
+  "instrument": {
+    "name": "potentiostat-02",
+    "reference_type": "Li metal",
+    "calibrated_at": "2026-01-15",
+    "rinse_protocol": "solvent rinse, 3 times",
+    "sampling_rate_Hz": 1.0
+  },
+  "protocol": {
+    "description": "three-electrode charge at 2C from 20% SOC, 25 C, stopped when the negative electrode reaches 0 V vs Li",
+    "steps": [
+      {
+        "kind": "charge",
+        "c_rate": 2.0
+      }
+    ]
+  },
+  "cell_state": {
+    "capacity_ref_Ah": 5.0,
+    "rpt_index": 0,
+    "age_efc": 0.0,
+    "soc_basis": "generator_map"
+  }
+}

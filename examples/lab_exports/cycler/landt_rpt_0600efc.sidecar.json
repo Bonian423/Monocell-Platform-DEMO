@@ -1,0 +1,17 @@
+{
+  "software": "monocell sample campaign (synthetic)",
+  "instrument": {
+    "name": "cycler-01",
+    "channel": "CH4"
+  },
+  "protocol": {
+    "description": "reference performance test at 600 EFC: C/20 discharge, then C/20 charge"
+  },
+  "cell_state": {
+    "capacity_ref_Ah": 5.0,
+    "rpt_index": 3,
+    "rpt_rate": 0.05,
+    "age_efc": 600.0,
+    "age_days": 300.0
+  }
+}
