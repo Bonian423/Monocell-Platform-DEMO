@@ -1,63 +1,79 @@
 # monocell
 
-Battery test data, from instrument exports to a PyBaMM model.
+Battery test files often come from different machines, with different column
+names, units, and extra information. monocell reads those files into a shared
+format, checks them, and saves each test with the details needed to understand
+it later. The saved tests can then be used to create a parameter file and run a
+cell model in PyBaMM. When data changes or a test is withdrawn, monocell marks
+the results that may need to be run again.
 
-monocell reads exports from battery cyclers, potentiostats and a stack-pressure
-rig into one schema, checks each file as it is written, and keeps every
-experiment in an append-only store. From the store it derives a parameter file
-for the cell and runs it in PyBaMM. When new data arrives, or an experiment is
-withdrawn, anything derived from the old data is reported stale and can be
-re-derived.
-
-> **The parameter-extraction module is abstracted in this copy for IP
-> reasons.** In the full platform, this step analyses each test type and
-> assembles a cell-specific PyBaMM parameter set with per-parameter
-> provenance. Here, `monocell/engine/extract.py` keeps the same interface and
-> returns published PyBaMM `Chen2020` values, so the rest of the pipeline runs
-> end to end.
+> **The model-building step is not included in this review copy.** The original
+> platform uses the test data to build a set of cell parameters and records
+> where they came from. Here, `monocell/engine/extract.py` returns published
+> Chen2020 values instead. Those values do not come from the sample tests, so
+> the simulation shows how the hand-off works, not a model fitted to this cell.
 
 This repository is shared for review only. See [LICENSE](LICENSE).
 
-> Interviewer guide: [high-level platform overview, ingest flow, validation paths, and demo scope](docs/interview-guide.md).
+> Interviewer guide: [how the original platform works, how files are added, and what this copy demonstrates](docs/interview-guide.md).
 
 ## Pipeline
 
-[![Compact pipeline from instrument exports to the PyBaMM hand-off, including the extraction boundary in this review copy.](docs/assets/pipeline.svg)](docs/assets/pipeline.svg)
+This is the runnable path in this copy: start with lab files, check and save
+them, then pass a parameter file to PyBaMM. The model-building box is where
+this copy differs from the original platform, as noted above. Select the image
+to open a larger version.
 
-The diagram is sized for the README preview. Open the linked SVG for a scalable
-view.
+[![How lab files move through this copy, from inspection and storage to a PyBaMM run.](docs/assets/pipeline.svg)](docs/assets/pipeline.svg)
 
-## Platform diagrams
+## How the platform works
 
-### Original platform loop
+The next picture shows the larger original platform. It includes steps that
+are not part of this review copy: test-specific analysis, building a model from
+the test results, checking that model against separate measurements, and
+choosing what test to run next.
 
-[![Cell evidence flows through ingest, analysis, model assembly, held-out validation, and a next-test feedback loop.](docs/assets/original-platform.svg)](docs/assets/original-platform.svg)
+[![How the original platform connects cell tests, analysis, model building, model checks, and the next test.](docs/assets/original-platform.svg)](docs/assets/original-platform.svg)
 
-### Detailed ingest layer
+### Adding a test file
 
-[![Detailed ingest flow showing inspection, confirmation, mapping, schema refusal, quality flags, and append-only storage.](docs/assets/ingest-layer.svg)](docs/assets/ingest-layer.svg)
+This is the part you can explore in this copy. The numbered steps match the
+readers and checks in [the ingest code](monocell/schema/ingest.py), the rig
+profiles in [the instrument code](monocell/schema/instruments.py), and the
+shared rules in [the experiment schema](monocell/schema/tables.py). Missing
+required data stops a save; a quality concern on otherwise usable data is saved
+as a warning with the test.
 
-### Evidence validation
+[![How a lab file is previewed, checked, and saved, including when it is refused or kept with a warning.](docs/assets/ingest-layer.svg)](docs/assets/ingest-layer.svg)
 
-[![The three separate checks: synthetic truth recovery, file round trip, and held-out model prediction.](docs/assets/evidence-validation.svg)](docs/assets/evidence-validation.svg)
+### How the checks differ
+
+The original platform uses three different checks for three different
+questions. Made-up data with a known answer checks whether an analysis can
+recover that answer. Exporting and re-reading a test checks whether file
+handling changed it. Finally, measurements kept out of model building check
+whether the model can predict a new result. Success at one does not prove the
+other two.
+
+[![Three checks: recover a known answer, keep data unchanged through file reading, and predict a separate test.](docs/assets/evidence-validation.svg)](docs/assets/evidence-validation.svg)
 
 ## What is here
 
 | Part | Where | What it does |
 |---|---|---|
-| Readers | `monocell/schema/ingest.py` | Cycler CSVs by header synonyms, Palmsense4 CSV (UTF-16, several blocks) and EIS XLSX, GITT step logs, stack-pressure CSVs, and `misc` for a file of no known shape |
-| Instrument profiles | `monocell/schema/instruments.py` | Landt, Neware, Maccor and Arbin export formats: column names, units, clock restarts per step, step labels, detection by header signature |
-| Type by shape | `monocell/schema/shapes.py` | Proposes an experiment type from the current and voltage, with the evidence as a sentence. A proposal is never applied automatically |
-| Schema | `monocell/schema/tables.py` | One spec per experiment type: columns, required instrument metadata, checks, ingest rules |
-| Checks at ingest | `monocell/schema/quality.py` | Three-electrode sum check and reference drift, linear Kramers-Kronig residual on EIS, capacity SOH for check-ups and cycling, timestamp order, profile parse report |
-| Store | `monocell/schema/write_experiment.py`, `manifest.py`, `artifacts.py` | Append-only experiments, retraction without deletion, a DuckDB index with search, a provenance envelope on every derived file |
-| Re-derivation | `monocell/rederive.py`, `monocell/autofit.py` | Staleness by content hash, run order from the dependency graph, a fixed-point loop, and derive-on-ingest scoped to what the new file feeds |
-| PyBaMM bridge | `monocell/simulate.py` | Loads the named base parameter set, applies the file's overrides (unknown keys are refused) and runs a constant-current discharge |
-| CLI | `monocell/cli.py` | `cell`, `inspect`, `ingest`, `find`, `promote`, `retract`, `manifest`, `rederive`, `simulate` |
+| File readers | `monocell/schema/ingest.py` | Read common cycler, EIS, GITT, and pressure files, plus files not yet matched to a test type |
+| Instrument profiles | `monocell/schema/instruments.py` | Translate supported rig column names, units, and step labels into the shared format |
+| Test suggestions | `monocell/schema/shapes.py` | Suggest a test type from the data and show why; a person still makes the choice |
+| Shared format | `monocell/schema/tables.py` | Set the columns and background details each test type must provide |
+| Checks | `monocell/schema/quality.py` | Look for data issues and save findings with the test |
+| Saved records | `monocell/schema/write_experiment.py`, `manifest.py`, `artifacts.py` | Keep tests and results without overwriting earlier records; build a searchable index that can be recreated |
+| Refreshing results | `monocell/rederive.py`, `monocell/autofit.py` | Find results affected by changed data and run the needed steps again |
+| PyBaMM link | `monocell/simulate.py` | Pass parameters to PyBaMM and run a discharge simulation |
+| Command line | `monocell/cli.py` | Commands to register cells, inspect and add data, search records, refresh results, and simulate |
 
-| Abstracted | Where |
-|---|---|
-| Parameter extraction | `monocell/engine/extract.py`: same interface, published `Chen2020` values |
+| Not included here | Where | What the original does |
+|---|---|---|
+| Build model settings from test data | `monocell/engine/extract.py` | The original uses cell tests to set model values. This copy uses published example values instead. |
 
 ## Quickstart
 
@@ -76,7 +92,8 @@ pip install -e ".[test,notebook]"
 
 The sample campaign in `examples/lab_exports/` is synthetic data for a 5 Ah
 NMC811/graphite cell. `examples/lab_exports/INGEST.md` loads all of it from the
-command line; the short version, run from `examples/`:
+command line. From `examples/`, the commands below create a sample cell, add
+its test files, update results, and run a discharge simulation:
 
 ```bash
 monocell cell register --cell demo --capacity-Ah 5.0 --chemistry "NMC811/graphite" --data-root demo_store
@@ -85,31 +102,30 @@ monocell rederive --cell demo --data-root demo_store
 monocell simulate --cell demo --c-rate 1 --data-root demo_store
 ```
 
+The model settings in this copy come from published example values, not from
+the sample tests.
+
 `examples/walkthrough.ipynb` goes through the same steps in Python, with the
 stored records, the checks and the PyBaMM result shown along the way.
 
 ## Design notes
 
-- **One schema, many instruments.** Readers and profiles map each vendor's
-  column names and units onto one set of columns per experiment type. A
-  profile is data (column rules and a header signature), so supporting a new
-  rig means writing a profile.
-- **Detection proposes and the user decides.** A matching profile or a type
-  proposal is printed with its evidence. The user names the profile and the
-  type, or confirms a folder plan before anything is written.
-- **Checks run at ingest and are stored with the data.** A failed check or a
-  missing protocol fact becomes a flag on the experiment. The file is still
-  stored, and the flag travels with it.
-- **Append-only.** Nothing is edited after it is written. A correction is a new
-  experiment that records `derived_from`, or a retraction with a reason; in
-  both cases the original files stay.
-- **Staleness by content hash.** Every derived file records the id and hash of
-  each input. New, edited or retracted data makes it stale, and `rederive`
-  re-runs what is stale, in dependency order, until nothing is.
-- **The index can be rebuilt.** The DuckDB manifest is rebuilt from the files
-  with `monocell manifest rebuild`.
-- **PyBaMM stays at the edge.** Ingest, queries and re-derivation never import
-  it, and neither does `import monocell`.
+- **Different machines, one shared format.** Readers translate each rig's
+  column names and units into the same set of fields. To add a rig, add or
+  adjust its profile in `monocell/schema/instruments.py`.
+- **The software suggests; a person chooses.** It shows which file reader and
+  test type seem to fit. The person checks that choice before a folder is saved.
+- **Warnings stay with the test.** A file missing required information is not
+  saved as that test type. Other check results are saved beside the data.
+- **Saved tests are not overwritten.** A correction is saved as a new test
+  linked to the earlier one. A withdrawn test stays on disk with a reason.
+- **Changed data can update its results.** Each result remembers which tests it
+  used. When one changes or is withdrawn, `monocell rederive` runs the affected
+  steps again.
+- **The search list can be rebuilt.** `monocell manifest rebuild` recreates it
+  from the files in the store.
+- **PyBaMM is only needed to run a model.** Reading files and searching the
+  store do not need to load PyBaMM.
 
 ## Layout
 

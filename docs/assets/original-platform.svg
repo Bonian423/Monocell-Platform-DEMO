@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 990" role="img" aria-labelledby="title desc">
-  <title id="title">Original monocell platform loop</title>
-  <desc id="desc">A compact, alternating two-column flow from cell evidence through ingest, analyses, model assembly, held-out validation, and a feedback loop for the next test.</desc>
+  <title id="title">How the original platform uses cell tests</title>
+  <desc id="desc">A compact overview from lab tests through shared records, analysis, model building, checks against separate test results, and a choice of what to measure next.</desc>
   <defs>
     <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto">
       <path d="M1,1 L10,6 L1,11 Z" fill="#66817c" />
@@ -18,51 +18,51 @@
     </style>
   </defs>
   <rect width="1000" height="990" fill="#f6f9f7" />
-  <text x="70" y="55" class="label">MONOCELL / ORIGINAL PLATFORM</text>
-  <text x="70" y="98" class="title">From test evidence to a defensible cell model</text>
-  <text x="70" y="130" class="subtitle">A system-level view; implementation and calibration details are intentionally omitted.</text>
+  <text x="70" y="55" class="label">THE ORIGINAL PLATFORM</text>
+  <text x="70" y="98" class="title">How cell tests become a model</text>
+  <text x="70" y="130" class="subtitle">This is the larger system; this review copy includes only some of these steps.</text>
 
   <rect x="70" y="170" width="410" height="160" fill="#e7f2ed" class="node" />
-  <text x="98" y="206" class="label">01 / EVIDENCE</text>
-  <text x="98" y="243" class="head">Cell and experiments</text>
-  <text x="98" y="277" class="body">Lab exports, protocol facts, and the</text>
-  <text x="98" y="303" class="body">cell's shared build record.</text>
+  <text x="98" y="206" class="label">01 / LAB TESTS</text>
+  <text x="98" y="243" class="head">Test files and cell details</text>
+  <text x="98" y="277" class="body">Lab files, notes about each test, and</text>
+  <text x="98" y="303" class="body">the saved details for the cell.</text>
 
   <rect x="520" y="170" width="410" height="160" fill="#e4eef2" class="node" />
-  <text x="548" y="206" class="label">02 / INGEST AND STORE</text>
-  <text x="548" y="243" class="head">One experiment contract</text>
-  <text x="548" y="277" class="body">Normalize records and keep quality</text>
-  <text x="548" y="303" class="body">findings beside the data.</text>
+  <text x="548" y="206" class="label">02 / SAVE THE TESTS</text>
+  <text x="548" y="243" class="head">Put each test in the same format</text>
+  <text x="548" y="277" class="body">Keep check results with each saved</text>
+  <text x="548" y="303" class="body">test so concerns are easy to find.</text>
   <path d="M482,250 H508" class="edge" />
 
   <rect x="520" y="390" width="410" height="160" fill="#f3eddb" class="node" />
-  <text x="548" y="426" class="label">03 / ANALYSIS</text>
-  <text x="548" y="463" class="head">Test-specific evidence products</text>
-  <text x="548" y="497" class="body">Versioned results record their inputs</text>
-  <text x="548" y="523" class="body">and can be re-derived.</text>
+  <text x="548" y="426" class="label">03 / STUDY EACH TEST TYPE</text>
+  <text x="548" y="463" class="head">Save what each kind of test tells us</text>
+  <text x="548" y="497" class="body">Keep a note of which tests each result</text>
+  <text x="548" y="523" class="body">used, and run it again when they change.</text>
   <path d="M725,332 V378" class="edge" />
 
   <rect x="70" y="390" width="410" height="160" fill="#e7f2ed" class="node" />
-  <text x="98" y="426" class="label">04 / MODEL</text>
-  <text x="98" y="463" class="head">Assemble a cell-specific model</text>
-  <text x="98" y="497" class="body">Measured and stated inputs keep their</text>
-  <text x="98" y="523" class="body">sources and coverage visible.</text>
+  <text x="98" y="426" class="label">04 / BUILD THE MODEL</text>
+  <text x="98" y="463" class="head">Use the test results to set cell values</text>
+  <text x="98" y="497" class="body">Show which values come from tests and</text>
+  <text x="98" y="523" class="body">which parts still need more evidence.</text>
   <path d="M518,470 H492" class="edge" />
 
   <rect x="70" y="610" width="410" height="160" fill="#f3e6e2" class="node" />
-  <text x="98" y="646" class="label">05 / VALIDATE</text>
-  <text x="98" y="683" class="head">Check against held-out evidence</text>
-  <text x="98" y="717" class="body">Report the result, coverage, and</text>
-  <text x="98" y="743" class="body">limits of what the model knows.</text>
+  <text x="98" y="646" class="label">05 / CHECK THE MODEL</text>
+  <text x="98" y="683" class="head">Compare it with separate test results</text>
+  <text x="98" y="717" class="body">Report what it predicts well and</text>
+  <text x="98" y="743" class="body">what still needs to be checked.</text>
   <path d="M275,552 V598" class="edge" />
 
   <rect x="520" y="610" width="410" height="160" fill="#dceee7" class="node" />
-  <text x="548" y="646" class="label">06 / REFRESH AND PLAN</text>
-  <text x="548" y="683" class="head">Re-derive and choose what is next</text>
-  <text x="548" y="717" class="body">Changed inputs stale dependent results;</text>
-  <text x="548" y="743" class="body">evidence gaps guide the next test.</text>
+  <text x="548" y="646" class="label">06 / UPDATE AND PLAN</text>
+  <text x="548" y="683" class="head">Update results and choose the next test</text>
+  <text x="548" y="717" class="body">New data may change earlier results.</text>
+  <text x="548" y="743" class="body">Missing information helps plan lab work.</text>
   <path d="M482,690 H508" class="edge" />
 
   <path d="M930,690 C970,690 970,146 485,146 H275 V160" class="loop" />
-  <text x="962" y="440" transform="rotate(-90 962 440)" class="small">next test / refreshed evidence</text>
+  <text x="962" y="440" transform="rotate(-90 962 440)" class="small">run another test</text>
 </svg>

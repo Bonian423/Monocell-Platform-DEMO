@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-labelledby="title desc">
-  <title id="title">Detailed monocell ingest layer</title>
-  <desc id="desc">A compact two-column ingest path from file inspection through human confirmation, normalization, structural validation, quality checks, and append-only storage. Structural failures are rejected; quality findings are retained as flags.</desc>
+  <title id="title">How a lab file becomes a saved test</title>
+  <desc id="desc">A compact view from previewing a lab file to saving it. Files missing required information are not saved; other concerns are saved as warnings.</desc>
   <defs>
     <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto">
       <path d="M1,1 L10,6 L1,11 Z" fill="#66817c" />
@@ -28,70 +28,70 @@
     </style>
   </defs>
   <rect width="1000" height="1000" fill="#f6f9f7" />
-  <text x="50" y="49" class="phase">MONOCELL / INGEST CONTRACT</text>
-  <text x="50" y="91" class="title">From instrument file to reviewable experiment</text>
-  <text x="50" y="121" class="subtitle">Inspect, confirm, normalize, validate, then persist with the interpretation attached.</text>
+  <text x="50" y="49" class="phase">ADDING A LAB TEST</text>
+  <text x="50" y="91" class="title">From lab file to saved test</text>
+  <text x="50" y="121" class="subtitle">Preview it first. Save it with the notes and warnings needed to understand it later.</text>
 
   <rect x="60" y="155" width="410" height="150" fill="#e7f2ed" class="node" />
   <circle cx="88" cy="183" r="15" fill="#27756a" />
   <text x="88" y="188" text-anchor="middle" class="number">1</text>
-  <text x="114" y="188" class="phase">SOURCE EVIDENCE</text>
-  <text x="82" y="228" class="head">Test file and cell context</text>
-  <text x="82" y="258" class="body">Files and protocol metadata are interpreted</text>
-  <text x="82" y="282" class="body">against a registered cell record.</text>
+  <text x="114" y="188" class="phase">LAB FILES</text>
+  <text x="82" y="228" class="head">Files and test notes</text>
+  <text x="82" y="258" class="body">Connect the files and test notes to</text>
+  <text x="82" y="282" class="body">the right saved cell.</text>
 
   <rect x="530" y="155" width="410" height="150" fill="#e4eef2" class="node" />
   <circle cx="558" cy="183" r="15" fill="#3d7183" />
   <text x="558" y="188" text-anchor="middle" class="number">2</text>
-  <text x="584" y="188" class="phase">INSPECT AND PROPOSE</text>
-  <text x="552" y="228" class="head">Preview type, reader, and mapping</text>
-  <text x="552" y="258" class="body">Show missing, empty, and unplaced fields;</text>
-  <text x="552" y="282" class="body">ambiguity is not resolved by guessing.</text>
+  <text x="584" y="188" class="phase">PREVIEW THE FILE</text>
+  <text x="552" y="228" class="head">See how the file will be read</text>
+  <text x="552" y="258" class="body">Show missing or unread columns. Ask a</text>
+  <text x="552" y="282" class="body">person to resolve unclear choices.</text>
   <path d="M472,230 H518" class="edge" />
 
   <rect x="530" y="355" width="410" height="150" fill="#e4eef2" class="node" />
   <circle cx="558" cy="383" r="15" fill="#3d7183" />
   <text x="558" y="388" text-anchor="middle" class="number">3</text>
-  <text x="584" y="388" class="phase">HUMAN CONFIRMATION</text>
-  <text x="552" y="428" class="head">Choose the interpretation</text>
-  <text x="552" y="458" class="body">Confirm folder plans; correct unclear input</text>
-  <text x="552" y="482" class="body">before it enters the cell record.</text>
+  <text x="584" y="388" class="phase">YOU CONFIRM</text>
+  <text x="552" y="428" class="head">Choose what the file contains</text>
+  <text x="552" y="458" class="body">Review a folder before saving it; fix</text>
+  <text x="552" y="482" class="body">anything that is not clear.</text>
   <path d="M735,307 V343" class="edge" />
 
   <rect x="60" y="355" width="410" height="150" fill="#e4eef2" class="node" />
   <circle cx="88" cy="383" r="15" fill="#3d7183" />
   <text x="88" y="388" text-anchor="middle" class="number">4</text>
-  <text x="114" y="388" class="phase">READ AND NORMALIZE</text>
-  <text x="82" y="428" class="head">Map to the canonical experiment shape</text>
-  <text x="82" y="458" class="body">Parse layouts; normalize names, units,</text>
-  <text x="82" y="482" class="body">time and labels; retain the map report.</text>
+  <text x="114" y="388" class="phase">USE ONE SHARED FORMAT</text>
+  <text x="82" y="428" class="head">Put the data into the same format</text>
+  <text x="82" y="458" class="body">Match column names, units, time, and</text>
+  <text x="82" y="482" class="body">test steps; note anything that does not fit.</text>
   <path d="M528,430 H482" class="edge" />
 
   <rect x="60" y="555" width="410" height="160" fill="#f3eddb" class="node" />
   <circle cx="88" cy="583" r="15" fill="#a77922" />
   <text x="88" y="588" text-anchor="middle" class="number">5</text>
-  <text x="114" y="588" class="phase">STRUCTURAL CONTRACT</text>
-  <text x="82" y="628" class="head">Check required fields and type shape</text>
-  <text x="82" y="658" class="body">A record that cannot satisfy its schema</text>
-  <text x="82" y="682" class="body">does not proceed to persistence.</text>
+  <text x="114" y="588" class="phase">CHECK REQUIRED DETAILS</text>
+  <text x="82" y="628" class="head">Make sure required information is present</text>
+  <text x="82" y="658" class="body">A file missing required details cannot</text>
+  <text x="82" y="682" class="body">be saved as this kind of test.</text>
   <path d="M265,507 V543" class="edge" />
 
   <path d="M730,555 L850,635 L730,715 L610,635 Z" fill="#ffffff" stroke="#9eb3ad" stroke-width="2" />
-  <text x="730" y="629" text-anchor="middle" class="head">Contract</text>
-  <text x="730" y="654" text-anchor="middle" class="head">satisfied?</text>
+  <text x="730" y="629" text-anchor="middle" class="head">Enough</text>
+  <text x="730" y="654" text-anchor="middle" class="head">information?</text>
   <path d="M472,635 H598" class="edge" />
 
   <rect x="60" y="790" width="410" height="165" fill="#f8e9e6" stroke="#d7a8a0" stroke-width="2" rx="15" />
-  <text x="84" y="827" class="branchhead" fill="#8e3e36">NO / refuse before write</text>
-  <text x="84" y="861" class="branchbody">Unreadable input, unconfirmed plan, or</text>
-  <text x="84" y="887" class="branchbody">structural mismatch returns a correction</text>
-  <text x="84" y="913" class="branchbody">path; no experiment is persisted.</text>
+  <text x="84" y="827" class="branchhead" fill="#8e3e36">NO / DO NOT SAVE</text>
+  <text x="84" y="861" class="branchbody">Unreadable file, unclear choice, or</text>
+  <text x="84" y="887" class="branchbody">missing required details means no test</text>
+  <text x="84" y="913" class="branchbody">is added. Fix the problem first.</text>
 
   <rect x="530" y="790" width="410" height="165" fill="#f7f0dd" stroke="#d5bd79" stroke-width="2" rx="15" />
-  <text x="554" y="827" class="branchhead" fill="#8a641c">YES / check and append</text>
-  <text x="554" y="861" class="branchbody">Run quality checks; keep concerns as flags.</text>
-  <text x="554" y="887" class="branchbody">Persist source, canonical series, metadata,</text>
-  <text x="554" y="913" class="branchbody">quality, and update the rebuildable index.</text>
+  <text x="554" y="827" class="branchhead" fill="#8a641c">YES / CHECK AND SAVE</text>
+  <text x="554" y="861" class="branchbody">Run checks; save any concerns as warnings.</text>
+  <text x="554" y="887" class="branchbody">Keep the file, shared-format data, and notes</text>
+  <text x="554" y="913" class="branchbody">together in the searchable test list.</text>
 
   <path d="M610,635 C590,680 560,715 520,735 H265 V780" class="reject-edge" />
   <text x="535" y="715" class="small" fill="#8e3e36">NO</text>

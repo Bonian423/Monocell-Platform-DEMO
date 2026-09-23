@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1160" role="img" aria-labelledby="title desc">
-  <title id="title">monocell demo pipeline</title>
-  <desc id="desc">A compact two-column flow of the review copy: exports are inspected and normalized, validated, stored, passed through abstracted parameter extraction, and run in PyBaMM. Changed evidence triggers re-derivation.</desc>
+  <title id="title">How monocell moves from lab tests to a model run</title>
+  <desc id="desc">A compact view of this copy: check and save lab files, pass them through the included parameter step, then run a discharge simulation. When tests change, affected results can be run again.</desc>
   <defs>
     <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto">
       <path d="M1,1 L10,6 L1,11 Z" fill="#66817c" />
@@ -21,68 +21,68 @@
     </style>
   </defs>
   <rect width="1000" height="1160" fill="#f6f9f7" />
-  <text x="70" y="58" class="label">MONOCELL / REVIEW COPY</text>
-  <text x="70" y="101" class="title">From lab export to simulation result</text>
-  <text x="70" y="133" class="subtitle">A compact view of the data path, with the extraction boundary explicit.</text>
+  <text x="70" y="58" class="label">MONOCELL / THIS COPY</text>
+  <text x="70" y="101" class="title">From lab tests to a model run</text>
+  <text x="70" y="133" class="subtitle">Follow the sample data through the parts included here.</text>
 
   <rect x="70" y="175" width="410" height="145" fill="#e7f2ed" class="node" />
-  <text x="98" y="209" class="label">01 / SOURCE</text>
-  <text x="98" y="244" class="head">Test exports and cell context</text>
-  <text x="98" y="276" class="body">Data files, protocol metadata, and a</text>
-  <text x="98" y="300" class="body">registered cell build record.</text>
+  <text x="98" y="209" class="label">01 / LAB FILES</text>
+  <text x="98" y="244" class="head">Test files and cell details</text>
+  <text x="98" y="276" class="body">Files from lab equipment, test notes,</text>
+  <text x="98" y="300" class="body">and details about the cell.</text>
 
   <rect x="520" y="175" width="410" height="145" fill="#e4eef2" class="node" />
-  <text x="548" y="209" class="label">02 / INSPECT</text>
-  <text x="548" y="244" class="head">Propose; let a person confirm</text>
-  <text x="548" y="276" class="body">Preview the reader, type, and mapped</text>
-  <text x="548" y="300" class="body">fields before data is committed.</text>
+  <text x="548" y="209" class="label">02 / LOOK FIRST</text>
+  <text x="548" y="244" class="head">Preview the file before saving</text>
+  <text x="548" y="276" class="body">See how it will be read and what kind</text>
+  <text x="548" y="300" class="body">of test it appears to contain.</text>
   <path d="M482,247 H508" class="edge" />
 
   <rect x="520" y="380" width="410" height="145" fill="#e4eef2" class="node" />
-  <text x="548" y="414" class="label">03 / NORMALIZE</text>
-  <text x="548" y="449" class="head">Map into the shared schema</text>
-  <text x="548" y="481" class="body">Normalize names, units, time, and</text>
-  <text x="548" y="505" class="body">step labels; report unplaced fields.</text>
+  <text x="548" y="414" class="label">03 / MATCH FORMATS</text>
+  <text x="548" y="449" class="head">Put different files in one format</text>
+  <text x="548" y="481" class="body">Match column names, units, time, and</text>
+  <text x="548" y="505" class="body">test steps; report fields that do not fit.</text>
   <path d="M725,322 V368" class="edge" />
 
   <rect x="70" y="380" width="410" height="145" fill="#f3eddb" class="node" />
-  <text x="98" y="414" class="label">04 / VALIDATE</text>
-  <text x="98" y="449" class="head">Check structure and signal quality</text>
-  <text x="98" y="481" class="body">Structural failures are refused;</text>
-  <text x="98" y="505" class="body">quality findings are retained as flags.</text>
+  <text x="98" y="414" class="label">04 / CHECK THE DATA</text>
+  <text x="98" y="449" class="head">Check required details and data quality</text>
+  <text x="98" y="481" class="body">Files missing required details are refused.</text>
+  <text x="98" y="505" class="body">Other concerns are saved as warnings.</text>
   <path d="M518,452 H492" class="edge" />
 
   <rect x="70" y="585" width="410" height="145" fill="#e7f2ed" class="node" />
-  <text x="98" y="619" class="label">05 / STORE</text>
-  <text x="98" y="654" class="head">Append the experiment record</text>
-  <text x="98" y="686" class="body">Keep the source frame, canonical</text>
-  <text x="98" y="710" class="body">series, metadata, and quality record.</text>
+  <text x="98" y="619" class="label">05 / SAVE EACH TEST</text>
+  <text x="98" y="654" class="head">Keep the file and its saved data</text>
+  <text x="98" y="686" class="body">Save the original read, shared-format data,</text>
+  <text x="98" y="710" class="body">test notes, and check results.</text>
   <path d="M275,527 V573" class="edge" />
 
   <rect x="520" y="585" width="410" height="145" fill="#f3eddb" class="node" />
-  <text x="548" y="619" class="label">06 / EXTRACTION BOUNDARY</text>
-  <text x="548" y="654" class="head">Build a cell-specific parameter set</text>
-  <text x="548" y="686" class="body">The original derives it from test data.</text>
-  <text x="548" y="710" class="small">This copy returns fixed Chen2020 values.</text>
+  <text x="548" y="619" class="label">06 / MODEL SETTINGS</text>
+  <text x="548" y="654" class="head">Set the values used by the model</text>
+  <text x="548" y="686" class="body">The original uses results from cell tests.</text>
+  <text x="548" y="710" class="small">This copy uses published example values.</text>
   <path d="M482,657 H508" class="edge" />
 
   <rect x="520" y="790" width="410" height="145" fill="#e7f2ed" class="node" />
-  <text x="548" y="824" class="label">07 / PARAMETER ARTIFACT</text>
-  <text x="548" y="859" class="head">Write a versioned parameter file</text>
-  <text x="548" y="891" class="body">Record the inputs and their hashes.</text>
-  <text x="548" y="915" class="small">The stand-in is independent of sample data.</text>
+  <text x="548" y="824" class="label">07 / MODEL SETTINGS FILE</text>
+  <text x="548" y="859" class="head">Save the values and where they came from</text>
+  <text x="548" y="891" class="body">List the tests used to make this file.</text>
+  <text x="548" y="915" class="small">Here, the values do not use sample tests.</text>
   <path d="M725,732 V778" class="edge" />
 
   <rect x="70" y="790" width="410" height="145" fill="#e4eef2" class="node" />
-  <text x="98" y="824" class="label">08 / SIMULATE</text>
-  <text x="98" y="859" class="head">Hand off to PyBaMM</text>
-  <text x="98" y="891" class="body">Run the configured discharge and</text>
-  <text x="98" y="915" class="body">store the result with its lineage.</text>
+  <text x="98" y="824" class="label">08 / RUN THE MODEL</text>
+  <text x="98" y="859" class="head">Run a discharge in PyBaMM</text>
+  <text x="98" y="891" class="body">Save the result with a note of which</text>
+  <text x="98" y="915" class="body">settings and tests it used.</text>
   <path d="M518,862 H492" class="edge" />
 
   <rect x="70" y="985" width="860" height="112" fill="#ffffff" class="node" />
-  <text x="98" y="1022" class="label">FRESHNESS LOOP</text>
-  <text x="98" y="1057" class="body">Changed or withdrawn inputs mark dependent outputs stale for re-derivation.</text>
+  <text x="98" y="1022" class="label">WHEN TEST DATA CHANGES</text>
+  <text x="98" y="1057" class="body">Mark the results that use it, so they can be run again.</text>
   <path d="M95,732 V973" class="loop" />
   <path d="M930,1040 H970 V655 H940" class="loop" />
 </svg>

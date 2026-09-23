@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 950" role="img" aria-labelledby="title desc">
-  <title id="title">Three evidence paths in monocell</title>
-  <desc id="desc">Three distinct tests: recover known synthetic truth, preserve experiment meaning across export and ingest, and predict data held out from model assembly.</desc>
+  <title id="title">Three ways to check the work</title>
+  <desc id="desc">Check whether the analysis finds a known answer, whether file reading changes the test data, and whether a model predicts a separate test.</desc>
   <defs>
     <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto">
       <path d="M1,1 L10,6 L1,11 Z" fill="#66817c" />
@@ -17,67 +17,66 @@
     </style>
   </defs>
   <rect width="1000" height="950" fill="#f6f9f7" />
-  <text x="40" y="52" class="label">MONOCELL / EVIDENCE MODEL</text>
+  <text x="40" y="52" class="label">HOW THE ORIGINAL PLATFORM CHECKS ITS WORK</text>
   <text x="40" y="94" class="title">Three checks, three different questions</text>
-  <text x="40" y="125" class="subtitle">Synthetic truth, file round trip, and held-out prediction are complementary.</text>
+  <text x="40" y="125" class="subtitle">Passing one check does not mean the other two will pass.</text>
 
   <rect x="40" y="165" width="290" height="650" fill="#e7f2ed" class="node" />
-  <text x="60" y="202" class="label">A / SYNTHETIC TRUTH</text>
-  <text x="60" y="239" class="head">Can analysis recover</text>
-  <text x="60" y="262" class="head">a known answer?</text>
+  <text x="60" y="202" class="label">A / CHECK THE ANALYSIS</text>
+  <text x="60" y="239" class="head">Can it find a known</text>
+  <text x="60" y="262" class="head">answer?</text>
   <rect x="60" y="294" width="250" height="86" fill="#ffffff" class="node" />
-  <text x="78" y="326" class="body">Generate controlled data</text>
-  <text x="78" y="352" class="small">Keep reference values known</text>
+  <text x="78" y="326" class="body">Make test data</text>
+  <text x="78" y="352" class="small">Keep the right answer known</text>
   <path d="M185,383 V401" class="edge" />
   <rect x="60" y="410" width="250" height="86" fill="#ffffff" class="node" />
   <text x="78" y="442" class="body">Run the analysis path</text>
-  <text x="78" y="468" class="small">Use normal interfaces</text>
+  <text x="78" y="468" class="small">Use the usual analysis steps</text>
   <path d="M185,499 V517" class="edge" />
   <rect x="60" y="526" width="250" height="110" fill="#ffffff" class="node" />
-  <text x="78" y="558" class="body">Compare with truth</text>
-  <text x="78" y="584" class="small">Repeat conditions and seeds;</text>
-  <text x="78" y="608" class="small">include negative controls.</text>
-  <text x="60" y="695" class="small">Tests estimator behavior under</text>
-  <text x="60" y="718" class="small">declared synthetic assumptions.</text>
+  <text x="78" y="558" class="body">Compare with the right answer</text>
+  <text x="78" y="584" class="small">Try different test conditions;</text>
+  <text x="78" y="608" class="small">include cases expected to fail.</text>
+  <text x="60" y="695" class="small">Checks the analysis on made-up data.</text>
 
   <rect x="355" y="165" width="290" height="650" fill="#e4eef2" class="node" />
-  <text x="375" y="202" class="label">B / FILE ROUND TRIP</text>
-  <text x="375" y="239" class="head">Does ingest preserve</text>
-  <text x="375" y="262" class="head">experiment meaning?</text>
+  <text x="375" y="202" class="label">B / CHECK FILE READING</text>
+  <text x="375" y="239" class="head">Does file reading change</text>
+  <text x="375" y="262" class="head">the test?</text>
   <rect x="375" y="294" width="250" height="86" fill="#ffffff" class="node" />
-  <text x="393" y="326" class="body">Start with known data</text>
-  <text x="393" y="352" class="small">Canonical experiment record</text>
+  <text x="393" y="326" class="body">Start with a known test</text>
+  <text x="393" y="352" class="small">Keep a copy of its data</text>
   <path d="M500,383 V401" class="edge" />
   <rect x="375" y="410" width="250" height="86" fill="#ffffff" class="node" />
-  <text x="393" y="442" class="body">Export and re-ingest</text>
-  <text x="393" y="468" class="small">Use the ordinary file path</text>
+  <text x="393" y="442" class="body">Save to file, then read it</text>
+  <text x="393" y="468" class="small">Use the normal file reader</text>
   <path d="M500,499 V517" class="edge" />
   <rect x="375" y="526" width="250" height="110" fill="#ffffff" class="node" />
-  <text x="393" y="558" class="body">Compare downstream results</text>
-  <text x="393" y="584" class="small">Direct versus re-ingested;</text>
-  <text x="393" y="608" class="small">look for semantic drift.</text>
-  <text x="375" y="695" class="small">Tests the file boundary, not</text>
-  <text x="375" y="718" class="small">model accuracy on real data.</text>
+  <text x="393" y="558" class="body">Compare before and after</text>
+  <text x="393" y="584" class="small">Check values and results for</text>
+  <text x="393" y="608" class="small">unexpected changes.</text>
+  <text x="375" y="695" class="small">Checks file reading, not whether</text>
+  <text x="375" y="718" class="small">the model predicts real cells.</text>
 
   <rect x="670" y="165" width="290" height="650" fill="#f3eddb" class="node" />
-  <text x="690" y="202" class="label">C / HELD-OUT EVIDENCE</text>
-  <text x="690" y="239" class="head">Can the model predict</text>
-  <text x="690" y="262" class="head">measurements it did not use?</text>
+  <text x="690" y="202" class="label">C / CHECK MODEL PREDICTION</text>
+  <text x="690" y="239" class="head">Can it predict data</text>
+  <text x="690" y="262" class="head">it did not learn from?</text>
   <rect x="690" y="294" width="250" height="86" fill="#ffffff" class="node" />
-  <text x="708" y="326" class="body">Build from available data</text>
-  <text x="708" y="352" class="small">Keep sources and coverage</text>
+  <text x="708" y="326" class="body">Build from some tests</text>
+  <text x="708" y="352" class="small">Keep other tests separate</text>
   <path d="M815,383 V401" class="edge" />
   <rect x="690" y="410" width="250" height="86" fill="#ffffff" class="node" />
-  <text x="708" y="442" class="body">Predict the held-out case</text>
-  <text x="708" y="468" class="small">Do not fit to the check data</text>
+  <text x="708" y="442" class="body">Predict a separate test</text>
+  <text x="708" y="468" class="small">Do not use it to build the model</text>
   <path d="M815,499 V517" class="edge" />
   <rect x="690" y="526" width="250" height="110" fill="#ffffff" class="node" />
-  <text x="708" y="558" class="body">Compare and report</text>
-  <text x="708" y="584" class="small">State result, coverage, and</text>
-  <text x="708" y="608" class="small">remaining limitations.</text>
-  <text x="690" y="695" class="small">Tests prediction on evidence</text>
-  <text x="690" y="718" class="small">excluded from model assembly.</text>
+  <text x="708" y="558" class="body">Compare and explain</text>
+  <text x="708" y="584" class="small">Say what worked and what</text>
+  <text x="708" y="608" class="small">still needs checking.</text>
+  <text x="690" y="695" class="small">Checks whether the model can</text>
+  <text x="690" y="718" class="small">predict a new test.</text>
 
   <rect x="40" y="850" width="920" height="66" fill="#173331" rx="12" />
-  <text x="500" y="891" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="17px" font-weight="700" fill="#ffffff">A pass on one path does not certify the others.</text>
+  <text x="500" y="891" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="17px" font-weight="700" fill="#ffffff">Passing one check does not prove the other two.</text>
 </svg>
